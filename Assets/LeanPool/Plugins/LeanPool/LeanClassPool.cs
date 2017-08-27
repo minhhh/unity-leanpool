@@ -80,4 +80,37 @@ namespace Lean
             cache.Clear ();
         }
     }
+
+    public static class LeanClassPool
+    {
+        private static List<object> cache = new List<object> ();
+
+        public static T Spawn <T> () where T : class
+        {
+            for (int i = 0; i < cache.Count; i++) {
+                object instance = cache [i];
+                if (instance is T) {
+                    cache.RemoveAt (i);
+                    return (T)instance;
+                }
+            }
+
+            // Return null?
+            return null;
+        }
+
+        public static void Despawn (object instance)
+        {
+            // Does it exist?
+            if (instance != null) {
+                // Add to cache
+                cache.Add (instance);
+            }
+        }
+
+        public static void Clear ()
+        {
+            cache.Clear ();
+        }
+    }
 }

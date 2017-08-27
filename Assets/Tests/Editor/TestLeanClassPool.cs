@@ -21,4 +21,14 @@ public class TestLeanClassPool
 
         Assert.AreSame (LeanClassPool <Object>.Spawn (), o);
     }
+
+    [Test]
+    public void CanSpawnObjectByType ()
+    {
+        LeanClassPool.Clear ();
+        var o = new TestLeanClassPool ();
+        LeanClassPool.Despawn (o);
+
+        Assert.AreSame (LeanClassPool.Spawn <TestLeanClassPool>(), o);
+    }
 }

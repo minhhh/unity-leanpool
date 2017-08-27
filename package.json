@@ -1,6 +1,6 @@
 {
   "name": "leanpool",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lean Pool is a GameObject pooling library that allows you to easily increase the performance of your games.",
   "main": "index.js",
   "files": [
