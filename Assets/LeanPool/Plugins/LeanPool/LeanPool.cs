@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using USingleton;
 
 namespace Lean
 {
@@ -89,11 +90,14 @@ namespace Lean
                 // Find the pool that handles this prefab
                 var pool = AllPools.Find (p => p.Prefab == prefab);
 
+                LeanPoolContainer.CreateInstance ();
+
                 // Create a new pool for this prefab?
                 if (pool == null) {
                     pool = new GameObject (prefab.name + " Pool").AddComponent<LeanPool> ();
 
                     pool.Prefab = prefab;
+                    pool.transform.SetParent (LeanPoolContainer.Instance.transform);
                 }
 
                 // Spawn a clone from this pool
@@ -359,5 +363,9 @@ namespace Lean
                 break;
             }
         }
+    }
+
+    public class LeanPoolContainer : GameSingleton <LeanPoolContainer>
+    {
     }
 }

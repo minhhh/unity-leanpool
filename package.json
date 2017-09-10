@@ -1,6 +1,6 @@
 {
   "name": "leanpool",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lean Pool is a GameObject pooling library that allows you to easily increase the performance of your games.",
   "main": "index.js",
   "files": [
@@ -12,6 +12,7 @@
     "unity": "rm -fr node_modules && DIR=`pwd` yarn install --flat --prod --verbose"
   },
   "dependencies": {
+    "unity-singleton": "ssh://github.com/minhhh/unity-singleton#v0.0.3",
     "minimist": "ssh://github.com/substack/minimist.git#0.0.8",
     "mkdirp": "ssh://github.com/substack/node-mkdirp.git#0.5.1",
     "ncp": "ssh://github.com/AvianFlu/ncp.git#v2.0.0"

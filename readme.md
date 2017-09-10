@@ -8,6 +8,10 @@ To include Lean Pool into your project, you can use `npm` method of unity packag
 
 ## Changelog
 
+**0.0.3**
+
+* Add LeanPoolContainer to group all the pools
+
 **0.0.2**
 
 * Add arbitrary object spawning feature
